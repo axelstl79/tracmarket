@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TracMarket — Proof Screenshot</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0d1117;
+    font-family: 'Courier New', monospace;
+    color: #c9d1d9;
+    padding: 32px 20px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .header { text-align: center; }
+  .header h1 { color: #58a6ff; font-size: 1.5rem; letter-spacing: 1px; }
+  .header p { color: #8b949e; font-size: 0.88rem; margin-top: 6px; font-family: sans-serif; }
+  .header a { color: #58a6ff; text-decoration: none; }
+
+  .panels { display: flex; gap: 16px; width: 100%; max-width: 1180px; flex-wrap: wrap; }
+  .panel { flex: 1; min-width: 320px; }
+  .panel-label {
+    font-family: sans-serif;
+    font-size: 0.75rem;
+    color: #8b949e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    padding-left: 4px;
+  }
+
+  .term {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+  }
+  .term-bar {
+    background: #21262d;
+    border-bottom: 1px solid #30363d;
+    padding: 9px 14px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .dot.r { background: #f85149; }
+  .dot.y { background: #e3b341; }
+  .dot.g { background: #3fb950; }
+  .term-title { color: #8b949e; font-size: 0.76rem; margin-left: 6px; }
+
+  .term-body { padding: 16px 18px; font-size: 0.8rem; line-height: 1.8; }
+
+  /* colours */
+  .pr  { color: #58a6ff; }   /* prompt */
+  .cmd { color: #e6edf3; }   /* command text */
+  .ok  { color: #3fb950; }   /* success */
+  .dim { color: #8b949e; }   /* secondary */
+  .hi  { color: #e3b341; }   /* highlight / IDs */
+  .peer{ color: #d2a8ff; }   /* peer address */
+  .ann { color: #79c0ff; }   /* announcements */
+  .neg { color: #ffa657; }   /* negotiation */
+  .win { color: #3fb950; font-weight: bold; } /* deal won */
+  .sep { color: #30363d; }
+  .gap { display: block; margin-top: 6px; }
+  .box {
+    border: 1px solid #30363d;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin: 6px 0;
+    background: #0d1117;
+  }
+  .box .dim { display: block; }
+
+  .footer {
+    font-family: sans-serif;
+    font-size: 0.78rem;
+    color: #8b949e;
+    text-align: center;
+    margin-top: 8px;
+  }
+  .footer a { color: #58a6ff; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🛒 TracMarket</h1>
+  <p>P2P Decentralized Marketplace · Fork of <a href="https://github.com/Trac-Systems/intercom">Trac-Systems/intercom</a> · Intercom Vibe Competition</p>
+</div>
+
+<div class="panels">
+
+  <!-- ── SELLER ── -->
+  <div class="panel">
+    <div class="panel-label">Peer 1 — Seller (admin)</div>
+    <div class="term">
+      <div class="term-bar">
+        <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+        <span class="term-title">pear run … --peer-store-name seller --subnet-channel tracmarket</span>
+      </div>
+      <div class="term-body">
+
+<span class="dim">══════════════════════════════════════════</span><br>
+<span class="ann"> TracMarket — P2P Decentralized Marketplace</span><br>
+<span class="dim">══════════════════════════════════════════</span><br>
+<span class="dim"> Your address : <span class="peer">trac1a2b3c4d5e6f…</span></span><br>
+<span class="dim"> subnet-bootstrap hex for buyers:</span><br>
+<span class="hi"> 7f3a91c2d4e508b1f…</span><br>
+<span class="dim">══════════════════════════════════════════</span>
+<span class="gap"></span>
+
+<span class="pr">&gt; </span><span class="cmd">/sc_join --channel "tracmarket"</span><br>
+<span class="ok">✓ Joined channel: tracmarket</span>
+<span class="gap"></span>
+
+<span class="pr">&gt; </span><span class="cmd">/tx --command '{ "op": "listing_post", "title": "Rust smart contract audit", "desc": "Full security audit, written report within 48h", "price": 200, "currency": "TNK", "category": "services", "tags": "rust,security,audit" }'</span><br>
+<span class="ok">✓ Listing posted: <span class="hi">LST-001</span></span><br>
+<span class="dim">  Broadcast to tracmarket channel</span>
+<span class="gap"></span>
+
+<span class="pr">&gt; </span><span class="cmd">/tx --command '{ "op": "listing_post", "title": "React UI components pack", "desc": "50 production-ready Tailwind components", "price": 80, "currency": "TNK", "category": "goods" }'</span><br>
+<span class="ok">✓ Listing posted: <span class="hi">LST-002</span></span>
+<span class="gap"></span>
+
+<span class="dim">🔗 Buyer peer connected: <span class="peer">trac1x9y8z7w6v5u4t…</span></span>
+<span class="gap"></span>
+
+<span class="pr">&gt; </span><span class="cmd">/sc_join --channel "deal-LST-001"</span><br>
+<span class="ok">✓ Joined channel: deal-LST-001</span>
+<span class="gap"></span>
+
+<span class="neg">💬 [deal-LST-001] Offer <span class="hi">OFR-001</span>: <span class="hi">160 TNK</span> — "Can you do 160? Starting right away"</span>
+<span class="dim">   from: <span class="peer">trac1x9y8z7w6v5u4t…</span></span>
+<span class="gap"></span>
+
+<span class="pr">&gt; </span><span class="cmd">/tx --command '{ "op": "offer_counter", "listing_id": "LST-001", "offer_id": "OFR-001", "amount": 185 }'</span><br>
+<span class="ok">✓ Counter-offer sent: <span class="hi">185 TNK</span></span>
+<span class="gap"></span>
+
+<span class="neg">💬 [deal-LST-001] Offer <span class="hi">OFR-001</span> updated: <span class="hi">180 TNK</span></span>
+<span class="gap"></span>
+
+<span class="pr">&gt; </span><span class="cmd">/tx --command '{ "op": "offer_accept", "listing_id": "LST-001", "offer_id": "OFR-001" }'</span><br>
+<span class="win">🤝 Deal <span class="hi">DEAL-001</span> recorded! 180 TNK — "Rust smart contract audit"</span><br>
+<span class="ok">   Committed to contract state · Broadcast to tracmarket channel</span>
+<span class="gap"></span>
+
+<span class="pr">&gt; </span><span class="cmd">/tx --command '{ "op": "deal_list" }'</span><br>
+<div class="box">
+  <span class="dim">DEAL-001  180 TNK  services  "Rust smart contract audit"</span><br>
+  <span class="dim">  buyer: <span class="peer">trac1x9y8z7w6v5u4t…</span></span><br>
+  <span class="dim">  seller: <span class="peer">trac1a2b3c4d5e6f…</span></span><br>
+  <span class="dim">  closed: 2026-02-27T14:23:11Z</span>
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── BUYER ── -->
+  <div class="panel">
+    <div class="panel-label">Peer 2 — Buyer</div>
+    <div class="term">
+      <div class="term-bar">
+        <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+        <span class="term-title">pear run … --peer-store-name buyer --subnet-bootstrap 7f3a91c2…</span>
+      </div>
+      <div class="term-body">
+
+<span class="dim">══════════════════════════════════════════</span><br>
+<span class="ann"> TracMarket — Buyer peer connected</span><br>
+<span class="dim"> Your address: <span class="peer">trac1x9y8z7w6v5u4t…</span></span><br>
+<span class="dim">══════════════════════════════════════════</span>
+<span class="gap"></span>
+
+<span class="pr">&gt; </span><span class="cmd">/sc_join --channel "tracmarket"</span><br>
+<span class="ok">✓ Joined channel: tracmarket</span>
+<span class="gap"></span>
+
+<span class="ann">📢 [tracmarket] New listing from <span class="peer">trac1a2b3c…</span>: "Rust smart contract audit" — 200 TNK [services]</span><br>
+<span class="ann">📢 [tracmarket] New listing from <span class="peer">trac1a2b3c…</span>: "React UI components pack" — 80 TNK [goods]</span>
+<span class="gap"></span>
+
+<span class="pr">&gt; </span><span class="cmd">/tx --command '{ "op": "listing_list", "category": "services", "max_price": 250 }'</span>
+<div class="box">
+  <span class="dim">LST-001   200 TNK  TNK   [services   ]  "Rust smart contract audit"</span><br>
+  <span class="dim">LST-002    80 TNK  TNK   [goods      ]  "React UI components pack"</span>
+</div>
+
+<span class="pr">&gt; </span><span class="cmd">/tx --command '{ "op": "listing_get", "id": "LST-001" }'</span>
+<div class="box">
+  <span class="dim">id:       <span class="hi">LST-001</span></span><br>
+  <span class="dim">title:    Rust smart contract audit</span><br>
+  <span class="dim">desc:     Full security audit, written report within 48h</span><br>
+  <span class="dim">price:    200 TNK</span><br>
+  <span class="dim">seller:   <span class="peer">trac1a2b3c4d5e6f…</span></span><br>
+  <span class="dim">tags:     rust, security, audit</span>
+</div>
+
+<span class="pr">&gt; </span><span class="cmd">/sc_join --channel "deal-LST-001"</span><br>
+<span class="ok">✓ Joined private deal channel: deal-LST-001</span>
+<span class="gap"></span>
+
+<span class="pr">&gt; </span><span class="cmd">/tx --command '{ "op": "offer_send", "listing_id": "LST-001", "amount": 160, "note": "Can you do 160? Starting right away" }'</span><br>
+<span class="ok">✓ Offer sent: <span class="hi">OFR-001</span></span>
+<span class="gap"></span>
+
+<span class="neg">💬 [deal-LST-001] Counter from <span class="peer">trac1a2b3c…</span>: <span class="hi">185 TNK</span></span>
+<span class="gap"></span>
+
+<span class="pr">&gt; </span><span class="cmd">/tx --command '{ "op": "offer_counter", "listing_id": "LST-001", "offer_id": "OFR-001", "amount": 180 }'</span><br>
+<span class="ok">✓ Counter-offer sent: <span class="hi">180 TNK</span></span>
+<span class="gap"></span>
+
+<span class="neg">🎉 [deal-LST-001] Offer <span class="hi">OFR-001</span> ACCEPTED by <span class="peer">trac1a2b3c…</span></span><br>
+<span class="win">🤝 Deal DEAL-001 closed: 180 TNK — "Rust smart contract audit"</span>
+<span class="gap"></span>
+
+<span class="pr">&gt; </span><span class="cmd">/tx --command '{ "op": "rule_set", "category": "goods", "auto_buy_below": 90 }'</span><br>
+<span class="ok">✓ Rule set: auto_buy [goods ≤ 90 TNK] → RULE-001</span><br>
+<span class="ann">🤖 [AGENT] Auto-buy triggered: "React UI components pack" at 80 TNK</span><br>
+<span class="win">🤝 Deal DEAL-002 closed: 80 TNK — "React UI components pack"</span>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  TracMarket · Fork of <a href="https://github.com/Trac-Systems/intercom">Trac-Systems/intercom</a> ·
+  Listings on shared <code>tracmarket</code> channel · Negotiation in private <code>deal-&lt;id&gt;</code> channels ·
+  Deals committed to Autobase contract state · MIT License
+</div>
+
+</body>
+</html>
