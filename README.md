@@ -170,7 +170,7 @@ Ratings (1–5 stars) are stored per Trac address in Autobase. Each completed tr
 
 ## Trac Address
 
-> **Reward address:** `YOUR_TRAC_ADDRESS_HERE`
+> **Reward address:** `trac1yragy69hu77yr9jrpm2g0gtn0pgjp373az89tdr969xcmxkdvfqq7harst`
 > *(Replace with your actual Trac address before submitting)*
 
 ---
